@@ -69,8 +69,8 @@ export default function DataPage() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 mt-20 mb-96">
-      <h1 className="text-center text-5xl m-16">
+    <div className="mx-auto w-full px-2.5 md:px-20 mt-20 mb-96">
+      <h1 className="text-center max-h-80 h-80 text-2xl md:text-4xl content-center">
         Asvspoof19 Laundered Dataset
       </h1>
       <p className="text-center">
@@ -91,9 +91,9 @@ export default function DataPage() {
           </h2>
           <div className="flex flex-col">
             {group.audios.map((audio, idx) => (
-              <div className="flex-col justify-center m-5" key={idx}>
-                <div className="text-center m-3 font-medium">{audio.name}</div>
-                <div className="flex justify-center">
+              <div className="md:flex-col justify-center m-5 " key={idx}>
+                <div className="text-center m-3 font-medium md:text-lg text-sm text-wrap truncate">{audio.name}</div>
+                <div className="flex md:flex-row flex-col justify-center place-items-center">
                   {audio.url.map((link, id) => (
                     <audio controls key={id}>
                       <source src={link.urls} type="audio/mpeg" />
