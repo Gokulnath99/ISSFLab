@@ -1,113 +1,60 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+const HomePageContent = {
+  HeroTitle: "Information Systems, Security and Forensics Lab",
+  HomeMainParagraph: `The Information Systems, Security, and Forensics (ISSF) laboratory is
+          founded on a vision of transferring mathematical and statistical tools
+          employed in the signal processing to analyze large-scale data to solve
+          challenging problems in the areas of deepfakes, automotive
+          cybersecurity, sensor data integrity verification, and multimedia
+          forensics. The ISSF lab provides the resources required to train a
+          workforce of professionals in the areas of deepfakes, automotive
+          cybersecurity, cyber-physical system security, sensor security,
+          information security, forensic science, and multimedia processing.
+          This lab is equipped with a number of desktop computers and laptops, a
+          variety of smartphones, sensors, a Ford Focus vehicle, a test-bed for
+          in-vehicle network communication, sound recording equipment, a
+          recording studio with controlled reverberations, microphone
+          calibration equipment, digital video cameras, and a repository of
+          software for acquiring in-vehicle network (IVN) traffic, tools to
+          analyze large scale data and manipulating digital media.`,
+  LabNews: [
+    "07/23: Congratulations Rafi Ud Daula Refat (now Dr. Rafi) on successfully defending your PhD dissertation!!!",
+    "07/23: Congratulations Abdul Rahman Abu Elkhalil (now Dr. Abdul) on successfully defending your PhD dissertation!!!",
+    "11/22: Congratulations Ali Hassani (now Dr. Ali Hassani) on successfully defending your PhD dissertation!!!",
+    "04/21: Congratulations Raghavendar (Raghu) Changalvala (now Dr. Raghavendar (Raghu) Changalvala) on successfully defending your PhD dissertation!!!",
+    "04/21: Congratulations Brandon Fedoruk on successfully defending your Master's thesis!!!",
+    "03/21: Our paper on cryptojacking was accepted in DSN 2021.",
+    "03/21: Our paper on automotive cybersecurity was accepted in Intelligent Systems Conference 2021 (IntelliSys'21).  ",
+    "03/21: Malik and Mohammadi receives NSF grant for $478K to secure connected autonomous vehicles against cyber threats.",
+    "08/20: Congratulations Dr. Azeem Hafeez on accepting a faculty position in the Department of Electrical and Computer Engineering at the University of Michigan - Dearborn!!!",
+    "07/20: Our Dark Firmware paper was accepted in RAID 2020.",
+    "Dr. Malik gave keynote talk during International Workshop Cybersecurity of Connected & Autonomous Vehicle: Challenges and Opportunities held by the Center of Excellence in Information Assurance at the King Saud University on December 2, 2020",
+    "Dr. Malik gave keynote talk during International Conference on Digitalization and Cyber Security 2020 during June 30 & July 1 by the Virtual University of Pakistan  ",
+    "Azeem Hafeez successfully defended his PhD dissertation. Congratulations Dr. Azeem Hafeez!",
+    "Dr. Malik gave keynote talk titled “Cybersecurity for Connected Autonomous Vehicles: Threats & Solutions,” during 2nd Int. Conference on Communication Technologies 2019 (ComTech-2019) at the Military College of Signals, National University of Science and Technology, Pakistan. ",
+  ],
+};
+
+function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div>
+      <div className="text-center max-h-80 h-80 text-lg md:text-3xl content-center">
+        {HomePageContent.HeroTitle}
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="md:text-lg text-sm my-8">
+        <p>{HomePageContent.HomeMainParagraph}</p>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div>
+        <h1 className="text-3xl">Lab News:</h1>
+        <ul className="list-disc md:text-lg text-sm list-inside">
+          {HomePageContent.LabNews.map((News, index) => (
+            <li className="my-4" key={index}>{News}</li>
+          ))}
+        </ul>
       </div>
-    </main>
+    </div>
   );
 }
+
+export default Home;
