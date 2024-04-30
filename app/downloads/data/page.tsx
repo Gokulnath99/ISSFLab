@@ -95,7 +95,7 @@ export default function DataPage() {
                 <div className="text-center m-3 font-medium md:text-lg text-sm text-wrap truncate">{audio.name}</div>
                 <div className="flex md:flex-row flex-col justify-center place-items-center">
                   {audio.url.map((link, id) => (
-                    <audio controls key={id} className="-z-10">
+                    <audio controls key={id}>
                       <source src={link.urls} type="audio/mpeg"/>
                       Your browser does not support the audio element.
                     </audio>
