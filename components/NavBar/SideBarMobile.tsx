@@ -38,7 +38,7 @@ function SideBarMobile(props: SideBarMobileProps) {
                   </SideBarNavButton>
                 </Link>
               ) : (
-                <div>
+                <div key={index}>
                   <SideBarNavButton
                     variant={"ghost"}
                     icon={link.icon}
