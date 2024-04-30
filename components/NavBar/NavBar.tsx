@@ -14,10 +14,20 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { Menu } from "lucide-react";
+import {
+  Download,
+  FolderClosed,
+  Home,
+  Landmark,
+  Newspaper,
+  Users,
+  Wrench,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import SidebarDesktop from "./SideBarMobile";
+import SideBarMobile from "./SideBarMobile";
+import { SideBarItems } from "@/type";
+
+import { useMediaQuery } from "usehooks-ts";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -34,7 +44,23 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
+const sideBarItems: SideBarItems = {
+  links: [
+    { label: "Home", href: "/", icon: Home },
+    { label: "Members", href: "/members", icon: Users },
+    { label: "Grants", href: "/grants", icon: Landmark },
+    { label: "Publications", href: "/publications", icon: Newspaper },
+    { label: "Projects", href: "/projects", icon: FolderClosed },
+    { label: "Downloads", icon: Download, sub: [{label: "Software", href: "/downloads/software"}, {label: "Data", href: "/downloads/data"}] },
+    { label: "Useful Resources", href: "/useful-resources", icon: Wrench },
+  ],
+};
+
 export function NavBar() {
+  const isDesktop = useMediaQuery("(min-width: 640px)", {
+    initializeWithValue: false,
+  });
+
   return (
     <div className="bg-[#00274C] flex justify-between lg:h-36 h-24 w-screen drop-shadow-md">
       <div className=" text-[#FFCB05] text-xl text-center p-5 content-center">
@@ -134,10 +160,7 @@ export function NavBar() {
         </NavigationMenu>
       </div>
       <div className="lg:hidden content-center text-center p-5 ">
-        <Button variant="outline" size="icon" className="bg-[#00274C] border-0">
-          <Menu className="h-8 w-8 text-[#FFCB05]" />
-        </Button>
-        <SidebarDesktop />
+        <SideBarMobile SideBarItems={sideBarItems} />
       </div>
     </div>
   );

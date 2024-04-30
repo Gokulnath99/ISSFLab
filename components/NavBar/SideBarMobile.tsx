@@ -1,21 +1,74 @@
 import React from "react";
+import { SideBarNavButton } from "./SideBarNavButton";
+import { Menu } from "lucide-react";
+import { SideBarItems } from "@/type";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
-function SideBarMobile() {
+interface SideBarMobileProps {
+  SideBarItems: SideBarItems;
+}
+
+function SideBarMobile(props: SideBarMobileProps) {
+  const pathname = usePathname();
+
   return (
-    <aside>
-      <div className="w-[270px] h-screen max-w-xs fixed right-0 top-0 z-40 border-l">
-        <div className="h-full px-3 py-4">
-            <h3 className="mx-3 text-lg text-foreground">
-                ISSF
-            </h3>
-            <div className="mt-5">
-                <div className="flex flex-col gap-1 w-full">
-                    
+    <Sheet>
+      <SheetTrigger className="p-5">
+        <Menu className="h-8 w-8 text-[#FFCB05]" />
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <div className="flex flex-col gap-1 w-full mt-16">
+            {props.SideBarItems.links.map((link, index) =>
+              link.href ? (
+                <Link key={index} href={link.href}>
+                  <SideBarNavButton
+                    variant={pathname === link.href ? "secondary" : "ghost"}
+                    icon={link.icon}
+                    className="w-full"
+                  >
+                    {link.label}
+                  </SideBarNavButton>
+                </Link>
+              ) : (
+                <div>
+                  <SideBarNavButton
+                    variant={"ghost"}
+                    icon={link.icon}
+                    className="w-full"
+                  >
+                    {link.label}
+                  </SideBarNavButton>
+                  <ul>
+                    {link.sub?.map((item, index) => item.href && (
+                      <li key={index}>
+                        <Link key={index} href={item.href}>
+                          <SideBarNavButton
+                            variant={
+                              pathname === item.href ? "secondary" : "ghost"
+                            }
+                            className="w-72 ml-10"
+                          >
+                            {item.label}
+                          </SideBarNavButton>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-            </div>
-        </div>
-      </div>
-    </aside>
+              )
+            )}
+          </div>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
   );
 }
 
