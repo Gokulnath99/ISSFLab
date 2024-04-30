@@ -27,7 +27,6 @@ import {
 import SideBarMobile from "./SideBarMobile";
 import { SideBarItems } from "@/type";
 
-import { useMediaQuery } from "usehooks-ts";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -124,9 +123,9 @@ export function NavBar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/useful-resources" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
+                  Useful Resources
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
